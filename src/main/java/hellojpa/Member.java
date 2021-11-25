@@ -1,29 +1,40 @@
 package hellojpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
-@Entity
+
 public class Member {
 
     @Id
     private Long id;
-    private String name;
 
-    public Long getId() {
-        return id;
+    @Column(name = "name")
+    private String username;
+
+    private Integer age;
+
+    //ENUM 사용
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
+    // 날짜 , 시간, 날짜시간 구분
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    private LocalDateTime testLocalDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+
+    // 큰 컨텐츠
+    @Lob
+    private String description;
+
+
+    public Member() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

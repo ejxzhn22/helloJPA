@@ -19,30 +19,50 @@ public class JpaMain {
 
         //code
         try{
-            //저장
+//            //저장 //비영속
 //            Member member = new Member();
-//            member.setId(2L);
-//            member.setName("HelloB");
+//            member.setId(10L);
+//            member.setName("Helloooo");
 //
+//           //영속 // INSERT쿼리는 commit할 때 보내진다
+//            System.out.println("=== BEFORE ===");
 //            em.persist(member);
+//            System.out.println("=== AFTER ===");
+
+//            Member findMember = em.find(Member.class, 10L);
+
+            // 1차캐시를 통해 조회 하기 떄문에 select쿼리가 나가지 않음.
+//            System.out.println("findMember.getId() = " + findMember.getId());
+//            System.out.println("findMember.getName() = " + findMember.getName());
+
 
             //조회
 //            Member findMember = em.find(Member.class, 1L);
 //            System.out.println("findMember.getName() = " + findMember.getName());
 //            System.out.println("findMember.getId() = " + findMember.getId());
 
+              // select 쿼리는 1번만 나간다. => 2번째 부터는 1차캐시에서 가져옴
+//            Member findMember1 = em.find(Member.class, 10L);
+//            Member findMember2 = em.find(Member.class, 10L);
+
+//            // 영속성 엔티티의 동일성 보장
+//            System.out.println("result = " + (findMember1 == findMember2));
+
+
             //수정
 //            Member findMember = em.find(Member.class, 1L);
 //            findMember.setName("HelloJPA");
 
             //쿼리 생성 JPQL , 객체를 대상으로 쿼리 생성
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .getResultList();
+//
+//            for(Member member : result){
+//                System.out.println("member.getName() = " + member.getName());
+//            }
 
-            for(Member member : result){
-                System.out.println("member.getName() = " + member.getName());
-            }
 
+            // 쓰기지연 => commit 시점에 insert 쿼리가 나간다.
             tx.commit();
 
         }catch (Exception e) {

@@ -10,7 +10,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop2"/>
             <!-- jpa는 특정 데이터베이스에 종속되지 않음, 데이터베이스 방언 지정  -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 
@@ -18,7 +18,7 @@
             <property name="hibernate.show_sql" value="true"/> <!-- 쿼리보기 -->
             <property name="hibernate.format_sql" value="true"/> <!-- 쿼리 예쁘게 보기 -->
             <property name="hibernate.use_sql_comments" value="true"/> <!-- 쿼리 설명(주석) 보기 -->
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>
