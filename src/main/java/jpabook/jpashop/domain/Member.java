@@ -10,7 +10,9 @@ public class Member {
     private Long id;
 
     @Column(length = 10) // 직관적으로 확인할 수 있는 제약. 디비 안봐도됨됨
-   private String name;
+    private String name;
+
+
     private String city;
     private String street;
     private String zipcode;

@@ -8,12 +8,18 @@ import java.util.Date;
 public class Member {
 
     @Id
+    @Column(name = "MEMBER_ID")
     private Long id;
 
     @Column(name = "name")
     private String username;
 
-    private Integer age;
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     //ENUM 사용
     @Enumerated(EnumType.STRING)
