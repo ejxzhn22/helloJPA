@@ -1,6 +1,8 @@
 package jpabook.jpashop.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -12,6 +14,8 @@ public class Member {
     @Column(length = 10) // 직관적으로 확인할 수 있는 제약. 디비 안봐도됨됨
     private String name;
 
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     private String city;
     private String street;
