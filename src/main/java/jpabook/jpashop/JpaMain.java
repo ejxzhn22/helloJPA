@@ -20,10 +20,7 @@ public class JpaMain {
         tx.begin();
 
         try{
-            //orderItem이 주인
-            Order order = new Order();
-            // 또는 orderItem.changeOrder(order);
-            order.addOrderItem(new OrderItem());
+
             tx.commit();
 
         }catch (Exception e) {
