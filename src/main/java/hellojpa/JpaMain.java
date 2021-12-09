@@ -63,6 +63,19 @@ public class JpaMain {
 
 
             // 쓰기지연 => commit 시점에 insert 쿼리가 나간다.
+
+            Team team = new Team();
+            team.setName("team1");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
+
+            List<Member> members = em.createQuery("select m from Member m", Member.class)
+                    .getResultList();
+
             tx.commit();
 
         }catch (Exception e) {
