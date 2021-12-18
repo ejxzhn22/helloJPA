@@ -17,9 +17,8 @@ public class Member extends BaseEntity{
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
-    private String city;
-    private String street;
-    private String zipcode;
+    @Embedded // 생략가능
+    private Address address;
 
     public Long getId() {
         return id;
@@ -37,27 +36,11 @@ public class Member extends BaseEntity{
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
